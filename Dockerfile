@@ -6,6 +6,6 @@ COPY src /usr/app/src
 RUN pwd
 RUN mvn install
 FROM tomcat:latest
-COPY --from=maven_builder /usr/app/target/myproject-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps
+COPY --from=maven_builder /usr/app/target/myproject-0.0.1-SNAPSHOT.jar /usr/local/tomcat/webapps
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
